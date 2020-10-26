@@ -19,6 +19,27 @@ mod tests {
     }
 
     #[test]
+    fn check_palindrome() {
+        // Given the string, check if it is a palindrome.
+        // EXAMPLE:
+        // For inputString = "aabaa", the output should be
+        // checkPalindrome(inputString) = true;
+
+        let func = |txt: &str| -> bool {
+            let rev: String = txt.chars().rev().collect();
+            txt == rev
+        };
+
+        assert_eq!(func("aabaa"), true);
+        assert_eq!(func("abac"), false);
+        assert_eq!(func("a"), true);
+        assert_eq!(func("abacaba"), true);
+        assert_eq!(func("hlbeeykoqqqqokyeeblh"), true);
+        assert_eq!(func("az"), false);
+        assert_eq!(func("hlbeeykoqqqokyeeblh"), true);
+    }
+
+    #[test]
     fn adjacent_elements_product() {
         // Given an array of integers,
         // find the pair of adjacent elements that has the largest product
@@ -27,6 +48,7 @@ mod tests {
         // For inputArray = [3, 6, -2, -5, 7, 3]
         // The output should be adjacentElementsProduct(inputArray) = 21
         // Because 7 and 3 produce the largest product.
+
         let func = |list: Vec<i32>| -> i32 {
             let mut prev = 0 as i32;
             let mut prod = 0 as i32;
